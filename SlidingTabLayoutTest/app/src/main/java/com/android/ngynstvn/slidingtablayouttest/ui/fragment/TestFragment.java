@@ -1,4 +1,4 @@
-package com.example.ngynstvn.slidingtablayouttest.fragment;
+package com.android.ngynstvn.slidingtablayouttest.ui.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.ngynstvn.slidingtablayouttest.R;
+import com.android.ngynstvn.slidingtablayouttest.R;
 
 /**
  * Created by Ngynstvn on 10/30/15.

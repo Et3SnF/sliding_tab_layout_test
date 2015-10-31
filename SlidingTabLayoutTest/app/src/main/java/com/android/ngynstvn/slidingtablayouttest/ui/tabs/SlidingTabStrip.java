@@ -1,4 +1,4 @@
-package com.example.ngynstvn.slidingtablayouttest.tabs;
+package com.android.ngynstvn.slidingtablayouttest.ui.tabs;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,4 +1,4 @@
-package com.example.ngynstvn.slidingtablayouttest;
+package com.android.ngynstvn.slidingtablayouttest;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
