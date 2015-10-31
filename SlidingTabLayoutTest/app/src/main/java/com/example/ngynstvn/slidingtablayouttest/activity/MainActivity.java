@@ -18,6 +18,7 @@ import com.example.ngynstvn.slidingtablayouttest.tabs.SlidingTabLayout;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private TestPageAdapter testPageAdapter;
     private ViewPager viewPager;
     private SlidingTabLayout slidingTabLayout;
     private Toolbar toolbar;
@@ -30,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tb_activity_main);
         setSupportActionBar(toolbar);
 
+        testPageAdapter = new TestPageAdapter(getFragmentManager());
+
         viewPager = (ViewPager) findViewById(R.id.vp_test_viewpager);
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.stl_test_tab_layout);
 
-        viewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+        viewPager.setAdapter(testPageAdapter);
         slidingTabLayout.setViewPager(viewPager);
     }
 
@@ -42,16 +45,13 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    class MyPagerAdapter extends FragmentPagerAdapter {
+    class TestPageAdapter extends FragmentPagerAdapter {
 
         String[] tabNames;
 
-        public MyPagerAdapter(FragmentManager fm) {
+        public TestPageAdapter(FragmentManager fm) {
             super(fm);
-            tabNames = new String[3];
-            tabNames[0] = "Test 1";
-            tabNames[1] = "Test 2";
-            tabNames[2] = "Test 3";
+            tabNames = new String[]{"Test 1", "Test 2", "Test 3"};
         }
 
         @Override
