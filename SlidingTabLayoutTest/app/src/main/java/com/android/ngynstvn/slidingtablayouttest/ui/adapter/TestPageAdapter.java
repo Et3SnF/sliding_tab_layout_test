@@ -3,6 +3,7 @@ package com.android.ngynstvn.slidingtablayouttest.ui.adapter;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import com.android.ngynstvn.slidingtablayouttest.ui.fragment.TestFragment1;
 import com.android.ngynstvn.slidingtablayouttest.ui.fragment.TestFragment2;
@@ -14,6 +15,8 @@ import com.android.ngynstvn.slidingtablayouttest.ui.fragment.TestFragment3;
 
 public class TestPageAdapter extends FragmentPagerAdapter {
 
+    private static final String TAG = TestPageAdapter.class.getSimpleName();
+
     String[] tabNames;
 
     public TestPageAdapter(FragmentManager fm) {
@@ -23,20 +26,28 @@ public class TestPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
+        Log.v(TAG, "Current position: " + position);
+
         TestFragment1 testFragment1 = TestFragment1.newInstance(position);
         TestFragment2 testFragment2 = TestFragment2.newInstance(position);
         TestFragment3 testFragment3 = TestFragment3.newInstance(position);
 
-        if(position == 0) {
-            return testFragment1;
+        try {
+            if(position == 0) {
+                return testFragment1;
+            }
+            else if(position == 1) {
+                return testFragment2;
+            }
+            else if(position == 2) {
+                return testFragment3;
+            }
+
+            return null;
         }
-        else if(position == 1) {
-            return testFragment2;
-        }
-        else if(position == 2) {
-            return testFragment3;
-        }
-        else {
+        catch (NullPointerException e) {
+            Log.v(TAG, "Unable to call Fragment " + position);
             return testFragment1;
         }
     }
