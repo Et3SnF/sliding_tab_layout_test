@@ -36,7 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.vp_test_viewpager);
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.stl_test_tab_layout);
-
+        slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return getResources().getColor(R.color.colorAccent);
+            }
+        });
         viewPager.setAdapter(testPageAdapter);
         slidingTabLayout.setViewPager(viewPager);
     }
